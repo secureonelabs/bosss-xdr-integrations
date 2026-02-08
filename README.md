@@ -1,56 +1,32 @@
-# Wazuh Integrations Repository
+<p align="center">
+    <img width="640px" src="logo.png" alt="BOSSS XDR Integrations"/>
+</p>
 
-This public repository contains integrations for third-party solutions, Wazuh rulesets, active responses, Security Configuration Assessment (SCA) policies, threat intelligence feeds, and custom dashboards. 
+# BOSSS XDR Integrations
 
-**Disclaimer:**
-The integrations and content within this repository are primarily community-contributed and are provided "as is" without warranty of any kind, express or implied. Users are responsible for evaluating the security, quality, and compatibility of any code or configurations they choose to utilize from this repository. The maintainers and associated company do not guarantee the absence of vulnerabilities, errors, or suitability for any particular purpose. References to third-party vendors or trademarks are for identification only and do not imply endorsement.
+> Based on [Wazuh Integrations](https://github.com/wazuh/integrations), open source security integrations.
 
-## Repository Structure
+This repository contains integrations for third-party solutions, rulesets, active responses, Security Configuration Assessment (SCA) policies, threat intelligence feeds, and custom dashboards.
 
-The repository is organized into an integrations folder. Each integration resides in its own dedicated directory within this folder. An integration can be for any operating system, device, or third-party solution. Each integration's directory can contain a full set of relevant content (e.g., ruleset, active response, SCA, threat intel, dashboards) or only a subset, depending on the specific needs of that integration (e.g., only a ruleset, or just an SCA and a custom dashboard). 
+## Disclaimer
 
-```
-integrations/
-├── <integration_name_1>/
-│   ├── ruleset/
-│   │   ├── rules/
-│   │   └── decoders/
-│   ├── active-response/
-│   ├── sca/
-│   ├── threat-intel/
-│   ├── dashboards/
-│   └── README.md
-├── <integration_name_2>/
-│   ├── ruleset/
-│   │   ├── rules/
-│   │   └── decoders/
-│   ├── active-response/
-│   ├── sca/
-│   ├── threat-intel/
-│   ├── dashboards/
-│   └── README.md
-└── ...
+The integrations and content within this repository are primarily community-contributed and are provided "as is" without warranty of any kind, express or implied.
 
-```
+## Documentation
 
-## Directory Definitions:
+- [Full documentation](https://documentation.wazuh.com)
 
-`<integration-name>`: Each top-level directory within integrations/ represents a specific third-party solution or integration point. Should be lowercase and separted by underscore `_`.
+## Security
 
-`ruleset/`: Contains Wazuh rules and decoders.
+If you discover a security vulnerability, please send an email to security@secureonelabs.com.
 
-`rules/`: XML files defining Wazuh rules.
+## License
 
-`decoders/`: XML files defining Wazuh decoders.
+This project is licensed under the [AGPL-3.0](LICENSE) License.
 
-`active-response/`: Scripts or configurations for Wazuh active responses.
+## Attribution
 
-`sca/`: Files defining Wazuh Security Configuration Assessment (SCA) policies.
+This project is based on [Wazuh Integrations](https://github.com/wazuh/integrations). See [ATTRIBUTION.md](ATTRIBUTION.md) for details.
 
-`threat-intel/`: Configurations or data related to integrating threat intelligence feeds.
-
-`dashboards/`: JSON files for custom Wazuh dashboards.
-
-`README.md`: Provides specific details and instructions for the individual integration.
-
-
+Copyright (C) 2024, Wazuh Inc.
+Copyright (C) 2024, SecureOneLabs

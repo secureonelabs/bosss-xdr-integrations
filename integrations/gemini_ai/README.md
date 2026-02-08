@@ -6,7 +6,7 @@
 - [Integrtaion Steps:](#integration-steps)
   - [Obatin API Key](#step-1-obtain-a-gemini-api-key)
   - [Add Custom Script](#step-2-add-custom-integration-script)
-  - [Configure Wazuh Manager](#step-3-configure-wazuh-integration)
+  - [Configure BOSSS XDR Manager](#step-3-configure-wazuh-integration)
   - [Custom Rules](#step-4-add-custom-rules)
 - [Verification](#verification)
 
@@ -14,16 +14,16 @@
 
 | Wazuh version | Component |
 |---|---|
-| 4.12.0 | Wazuh Manager |
+| 4.12.0 | BOSSS XDR Manager |
 
 ## Overview
-Integrate **Gemini AI** with **Wazuh** to enrich alerts. The integration leverages the **Gemini API** (`gemini-2.0-flash` model) to generate summaries and explanations for triggered alerts, which are then displayed directly on the **Wazuh Dashboard**.
+Integrate **Gemini AI** with **Wazuh** to enrich alerts. The integration leverages the **Gemini API** (`gemini-2.0-flash` model) to generate summaries and explanations for triggered alerts, which are then displayed directly on the **BOSSS XDR Dashboard**.
 
 ---
 
 ## Requirements
 - **Gemini API Key** (from [Google AI Studio](https://aistudio.google.com/))  
-- **Wazuh Manager server access** (with integration and rules configuration rights)  
+- **BOSSS XDR Manager server access** (with integration and rules configuration rights)  
 - Model: **`gemini-2.0-flash`**
 
 ---
@@ -38,7 +38,7 @@ Integrate **Gemini AI** with **Wazuh** to enrich alerts. The integration leverag
 ---
 
 ### Step 2: Add Custom Integration Script
-1. On the **Wazuh Manager** server, create a new Python script file:
+1. On the **BOSSS XDR Manager** server, create a new Python script file:
    ```bash
    vi /var/ossec/integrations/custom-gemini.py
    ```
@@ -109,6 +109,6 @@ systemctl restart wazuh-manager
   - Forward the alert details to Gemini AI.
   - Receive a summary/explanation from Gemini.
   - Generate a new enriched alert with Gemini’s output.
-- The enriched alert will appear on the Wazuh Dashboard with the [Gemini] prefix under rule ID 100210.
+- The enriched alert will appear on the BOSSS XDR Dashboard with the [Gemini] prefix under rule ID 100210.
 
 <img width="844" height="1459" alt="Screenshot 2025-09-15 153354" src="https://github.com/user-attachments/assets/e79901af-ea4d-4823-a4e2-d119aec5d4c7" />

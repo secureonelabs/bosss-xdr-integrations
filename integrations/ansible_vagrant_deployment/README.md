@@ -157,12 +157,12 @@ systemctl status wazuh-dashboard
 ```
 /usr/share/wazuh-indexer/plugins/opensearch-security/tools/wazuh-passwords-tool.sh -u admin -p <enterpassword>
 ```
-3. **Access Wazuh Dashboard**:
+3. **Access BOSSS XDR Dashboard**:
    - Open `https://<IP-address>` in a browser on the host machine.
 
 ## Sources
 
 - [Vagrant Documentation](https://developer.hashicorp.com/vagrant/docs/vagrantfile)
 - [Wazuh Ansible Deployment](https://documentation.wazuh.com/current/deployment-options/deploying-with-ansible/index.html)
-- [Wazuh Documentation](https://documentation.wazuh.com/current/)
+- [BOSSS XDR Documentation](https://documentation.wazuh.com/current/)
 - [Wazuh Ansible Repository](https://github.com/wazuh/wazuh-ansible)

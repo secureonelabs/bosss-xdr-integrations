@@ -46,8 +46,8 @@ chmod 750 /var/ossec/integrations/custom-netsuite.py
 The script will  fetch the new logs every time it runs and write them to the file: `/var/log/netsuite_logs.json`
 
 ### Add rules
-- In Wazuh Dashboard go to Server Management > Rules > Add new rules file. Name it `netsuite-rules.xml`, add the content of netsuite-rules.xml and save.
-- Restart the Wazuh Cluster to apply the changes.
+- In BOSSS XDR Dashboard go to Server Management > Rules > Add new rules file. Name it `netsuite-rules.xml`, add the content of netsuite-rules.xml and save.
+- Restart the BOSSS XDR Cluster to apply the changes.
 
 ## Integration testing
 Once the configuration is done, the integration will run after 10 minutes and the alerts will appear on the dashboard.

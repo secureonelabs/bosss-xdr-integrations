@@ -350,7 +350,7 @@ This enhanced integration was forked from [Ratandeep18](https://github.com/Ratan
 <summary>Click to expand source references</summary>
 
 - [MISP Project Documentation](https://www.misp-project.org/documentation/)
-- [Wazuh Documentation](https://documentation.wazuh.com/)
+- [BOSSS XDR Documentation](https://documentation.wazuh.com/)
 - [Microsoft Sysmon Documentation](https://learn.microsoft.com/en-us/sysinternals/downloads/sysmon)
 - [ MISP integration issues](https://www.reddit.com/r/Wazuh/comments/10hdd22/misp_integration_issues/)
 - [wazuh sysmon logs forwarding issues](https://groups.google.com/g/wazuh/c/2FXD6wx0TDU)
@@ -368,8 +368,8 @@ This enhanced integration was forked from [Ratandeep18](https://github.com/Ratan
 
 ```mermaid
 graph TD
-    A[Windows Client] -->|Sysmon Events| B[Wazuh Agent]
-    B -->|Forward Events| C[Wazuh Manager]
+    A[Windows Client] -->|Sysmon Events| B[BOSSS XDR Agent]
+    B -->|Forward Events| C[BOSSS XDR Manager]
     C -->|Invoke Integration| D[MISP Integration]
     D -->|Query| E[MISP Server]
     E -->|Return Matches| D
@@ -377,7 +377,7 @@ graph TD
     D -->|On API failure| G[Local Queue File]
     D -->|Log all activity| H[Logging: custom-misp.log]
     G -->|Retry queued alerts on startup| D
-    C -->|Display Alerts| F[Wazuh Dashboard]
+    C -->|Display Alerts| F[BOSSS XDR Dashboard]
 ```
 
 </div>

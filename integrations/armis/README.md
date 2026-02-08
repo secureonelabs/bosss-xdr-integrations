@@ -28,7 +28,7 @@ It's primarily based on detecting and alerting on different events, depending on
     ```
 
 
-You can also implement it throught the Wazuh Dashboard menu:
+You can also implement it throught the BOSSS XDR Dashboard menu:
 
     Server Management > Rules > Add new rules file
 

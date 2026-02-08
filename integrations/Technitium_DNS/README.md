@@ -11,8 +11,8 @@
   - [Logging Settings](#logging-settings)
   - [Generate DNS Queries for Testing](#generate-dns-queries-for-testing)
   - [Verify JSON Log Output](#verify-json-log-output)
-- [Wazuh Agent Configuration](#wazuh-agent-configuration)
-- [Custom Ruleset Configuration in Wazuh Server](#custom-ruleset-configuration-in-wazuh-manager-server)
+- [BOSSS XDR Agent Configuration](#wazuh-agent-configuration)
+- [Custom Ruleset Configuration in BOSSS XDR Server](#custom-ruleset-configuration-in-wazuh-manager-server)
   - [Testing Decoders and Rules](#testing-decoders-and-rules)
 - [Dashboard Configuration](#dashboard-configuration)
 - [Sources](#sources)
@@ -23,9 +23,9 @@ This integration offers a comprehensive guide and the required configurations to
 ## Prerequisites
 Before starting the integration, ensure you have the following:
 
-- A dedicated server with supported Linux operating system for installing Technitium DNS and the Wazuh Agent.
+- A dedicated server with supported Linux operating system for installing Technitium DNS and the BOSSS XDR Agent.
 - A fully functional Wazuh environment, including the Server, Indexer, and Dashboard components.
-- Reliable network connectivity between the Wazuh Agent and the Wazuh Server to ensure uninterrupted log transmission.
+- Reliable network connectivity between the BOSSS XDR Agent and the BOSSS XDR Server to ensure uninterrupted log transmission.
 
 ## Installation and Configuration
 
@@ -147,9 +147,9 @@ You should see DNS events formatted as JSON objects.
 
 **Note:** If the file `/var/log/dns/dns_logs.json` is created, JSON logging is working and you are ready to integrate it with Wazuh.
 
-## Wazuh Agent Configuration
+## BOSSS XDR Agent Configuration
 
-The Wazuh agent reads the Technitium DNS JSON log file directly. For this integration, you can use either the centralized configuration (via Wazuh Server) or the local agent configuration. You can refer to this [document](https://documentation.wazuh.com/current/user-manual/reference/centralized-configuration.html) for the centralized configuration.
+The Wazuh agent reads the Technitium DNS JSON log file directly. For this integration, you can use either the centralized configuration (via BOSSS XDR Server) or the local agent configuration. You can refer to this [document](https://documentation.wazuh.com/current/user-manual/reference/centralized-configuration.html) for the centralized configuration.
 
 If the `Wazuh agent` is not already installed on the Technitium DNS server, you must install it first. Follow the official [document](https://documentation.wazuh.com/current/cloud-service/getting-started/enroll-agents.html#deploy-agent)
 
@@ -171,7 +171,7 @@ The configuration above wraps each log line under a `dns` object, which keeps fi
 
 **Recommendation:** Set up logrotate for `/var/log/dns/dns_logs.json` to prevent the file from consuming excessive disk space, as DNS logs can grow quickly.
 
-Restart Wazuh Agent
+Restart BOSSS XDR Agent
 
 After saving the configuration, restart the agent:
 
@@ -247,7 +247,7 @@ Below is a sample dashboard configuration that visualizes DNS queries, blocked v
 
 A sample dashboard export file, [technitium_dns_dashboard.ndjson](https://github.com/wazuh/operations/blob/technitium-dns-integration/integrations/integrations/Technitium-DNS/technitium_dns_dashboard.ndjson), is included in this repository for quick setup.
 
-You can download it directly from the GitHub UI by clicking the link above and selecting “Download raw file”. Once downloaded, you can import it into the Wazuh Dashboard by navigating to Wazuh Dashboard → Menu → Stack Management → Saved Objects.
+You can download it directly from the GitHub UI by clicking the link above and selecting “Download raw file”. Once downloaded, you can import it into the BOSSS XDR Dashboard by navigating to BOSSS XDR Dashboard → Menu → Stack Management → Saved Objects.
 
 <img width="1236" height="936" alt="image" src="https://github.com/user-attachments/assets/08e22723-492c-402c-b6f5-b3bbe9a002bc" />
 

@@ -17,7 +17,7 @@
 
 | Wazuh version | Component | Deployment Type | OS |
 |---|---|---|---|
-| 4.14.0 | Wazuh Indexer | OVA | Amazon Linux | 
+| 4.14.0 | BOSSS XDR Indexer | OVA | Amazon Linux | 
 
 ## Overview
 This guide explains how to integrate Wazuh with Gemini AI to automatically enrich alerts with detailed explanations and suggested remediation steps in **same alert**.
@@ -25,7 +25,7 @@ This guide explains how to integrate Wazuh with Gemini AI to automatically enric
 In this integration, a Wazuh Monitor runs every minute to check for alerts triggered within the last five minutes that match specific rule IDs and do not already contain the field `ai_enrichment.summary`.
 These alerts are sent to a Python Flask enrichment service via a webhook configured in the Wazuh Notification Channel.
 
-The Flask service calls the Gemini API, retrieves enrichment details, and updates the same alert document in the Wazuh Indexer with the AI-generated summary and recommendations.
+The Flask service calls the Gemini API, retrieves enrichment details, and updates the same alert document in the BOSSS XDR Indexer with the AI-generated summary and recommendations.
 This process introduces a minor delay (approximately one minute) between the initial alert generation and enrichment.
 
 ### Enriched Alert Example
@@ -40,7 +40,7 @@ This process introduces a minor delay (approximately one minute) between the ini
 
 ## Requirements
 - **Gemini API Key** (from [Google AI Studio](https://aistudio.google.com/))  
-- **Wazuh Indexer CLI access and Dashboard Admin Access** (To create notification channel and Monitor)  
+- **BOSSS XDR Indexer CLI access and Dashboard Admin Access** (To create notification channel and Monitor)  
 - Model: **`gemini-2.0-flash`**
 
 ## Integration Steps
@@ -51,7 +51,7 @@ This process introduces a minor delay (approximately one minute) between the ini
 3. Save the key securely for later configuration.
 
 ### Step 2: Configure Notification Channel 
-Run the following command on your Wazuh Indexer server to create a Webhook Notification Channel:
+Run the following command on your BOSSS XDR Indexer server to create a Webhook Notification Channel:
 ```bash
 curl -k -u admin:<password> -H 'Content-Type: application/json' \
   -X POST 'https://localhost:9200/_plugins/_notifications/configs' \
@@ -69,7 +69,7 @@ curl -k -u admin:<password> -H 'Content-Type: application/json' \
   }'
   ```
 
-Replace <password> with your Wazuh Dashboard admin password.
+Replace <password> with your BOSSS XDR Dashboard admin password.
 
 Once executed successfully, this will return a config_id.
 Copy and save this ID — you’ll need it when creating the monitor.
@@ -171,7 +171,7 @@ GEMINI_API_KEY="<YOUR_REAL_KEY>"
 GEMINI_MODEL="gemini-2.0-flash"
 ```
 Replace:
-- `OS_USER` and `OS_PASS` with your Wazuh Dashboard credentials
+- `OS_USER` and `OS_PASS` with your BOSSS XDR Dashboard credentials
 - `<YOUR_REAL_KEY>` with your Gemini API key
 
 3. Set permissions:
@@ -243,7 +243,7 @@ Sep 25 23:11:06 wazuh-server python3[23329]: * Running on http://192.168.0.15:50
 Once configuration is complete:
 - Trigger alerts matching any of the configured rule.id values (e.g., create a file to trigger rule 554 in FIM).
 - Wait 1–2 minutes for enrichment.
-- Open the Wazuh Dashboard and view the enriched alert.
+- Open the BOSSS XDR Dashboard and view the enriched alert.
 
 It should now contain a new field: `ai_enrichment.summary`
 

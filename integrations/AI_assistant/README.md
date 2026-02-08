@@ -20,7 +20,7 @@
 
 A real-time chatbot for alert analysis on Wazuh. Ask natural-language questions to investigate threats, explain alerts, and get security recommendations.
 
-The AI Assistant runs queries against Wazuh indices (e.g., `wazuh-alerts`, `wazuh-states-vulnerabilities`) through an MCP Server and a Gateway, which translate natural-language questions into OpenSearch queries and return concise, actionable insights. Results are displayed in the Wazuh Dashboard.
+The AI Assistant runs queries against Wazuh indices (e.g., `wazuh-alerts`, `wazuh-states-vulnerabilities`) through an MCP Server and a Gateway, which translate natural-language questions into OpenSearch queries and return concise, actionable insights. Results are displayed in the BOSSS XDR Dashboard.
 
 ---
 
@@ -65,8 +65,8 @@ The following table lists the default ports required for this proof of concept. 
 | Component         | Port | Protocol | Purpose |
 |-------------------|------|-----------|----------|
 | MCP-LLM Gateway   | 9912 | TCP       | Receives HTTP requests from ML Commons (/analyze), runs agent logic, communicates with the LLM and the MCP server |
-| MCP Server        | 9900 | TCP       | Exposes the MCP Server. It receives tool calls from the Gateway. The MCP server performs the corresponding queries against the Wazuh Indexer, and returns structured results back to the Gateway. |
-| Wazuh Indexer     | 9200 | TCP       | Wazuh Indexer REST API |
+| MCP Server        | 9900 | TCP       | Exposes the MCP Server. It receives tool calls from the Gateway. The MCP server performs the corresponding queries against the BOSSS XDR Indexer, and returns structured results back to the Gateway. |
+| BOSSS XDR Indexer     | 9200 | TCP       | BOSSS XDR Indexer REST API |
 
 
 
@@ -93,7 +93,7 @@ MCP Server will use the following directories:
 - `/etc/mcp-server/` — Configuration files (environment/credentials)
 - `/var/log/mcp_server/` — Log files
 
-The config directory `/etc/mcp-server/` will contain `mcp-server.env`, which defines the connection to the Wazuh Indexer.
+The config directory `/etc/mcp-server/` will contain `mcp-server.env`, which defines the connection to the BOSSS XDR Indexer.
 
 </details> 
 
@@ -121,7 +121,7 @@ sudo chown -R mcpserver:mcpserver /var/log/mcp_server
 sudo chmod 750 /var/log/mcp_server
 ```
 
-This also creates an empty `/etc/mcp-server/mcp-server.env` file. You will edit it later to define the Wazuh Indexer connection.
+This also creates an empty `/etc/mcp-server/mcp-server.env` file. You will edit it later to define the BOSSS XDR Indexer connection.
 
 </details> 
 
@@ -204,7 +204,7 @@ sudo systemctl enable mcp-server
 <details>
   <summary><b>7. Configure environment variables</b></summary>
    
-Open `/etc/mcp-server/mcp-server.env` and add the connection details for the Wazuh Indexer:
+Open `/etc/mcp-server/mcp-server.env` and add the connection details for the BOSSS XDR Indexer:
 
   ```bash
 sudo nano /etc/mcp-server/mcp-server.env
@@ -307,7 +307,7 @@ sudo chmod 750 /var/log/mcp_llm_gateway
 
 ```
 
-This also creates empty `.env` and  `.prompt` files. You will edit them later to define the Wazuh Indexer connection and the system prompt used by the LLM.
+This also creates empty `.env` and  `.prompt` files. You will edit them later to define the BOSSS XDR Indexer connection and the system prompt used by the LLM.
 
 </details> 
 
@@ -520,7 +520,7 @@ sudo systemctl restart  mcp-llm-gateway
 
 
 <details>
-  <summary><b>1. Install the OpenSearch Dashboards plugin in the Wazuh Dashboard</b></summary>
+  <summary><b>1. Install the OpenSearch Dashboards plugin in the BOSSS XDR Dashboard</b></summary>
 
 
 
@@ -550,7 +550,7 @@ systemctl status wazuh-dashboard
 <details>
   <summary><b>2. Cluster settings</b></summary>
    
-In the Wazuh Dashboard go `☰` > `Indexer management` > `Dev tools`
+In the BOSSS XDR Dashboard go `☰` > `Indexer management` > `Dev tools`
 
 
   ```json
@@ -778,11 +778,11 @@ Output:
 
 Configure the agent id  used by OpenSearch Assistant.
 
-If you run a multi-node Wazuh Indexer cluster, execute this once against any healthy node. Run the request with super-admin privileges.
+If you run a multi-node BOSSS XDR Indexer cluster, execute this once against any healthy node. Run the request with super-admin privileges.
 
-Replace `<WAZUH_INDEXER_IP>` with the IP or hostname of your Wazuh Indexer node, and replace `<agent_id>` with the `agent_id` obtained in the previous step.
+Replace `<WAZUH_INDEXER_IP>` with the IP or hostname of your BOSSS XDR Indexer node, and replace `<agent_id>` with the `agent_id` obtained in the previous step.
 
-In the Wazuh Indexer, run:
+In the BOSSS XDR Indexer, run:
 
   ```bash
 DIR="/etc/wazuh-indexer/certs"
@@ -887,7 +887,7 @@ Run the script:
 sudo bash ./dashboard-assistant-ui.sh
 ```
 
-Restart the Wazuh Dashboard service:
+Restart the BOSSS XDR Dashboard service:
 
  ```bash
 sudo systemctl restart wazuh-dashboard
@@ -895,11 +895,11 @@ sudo systemctl restart wazuh-dashboard
 
 After restart, the UI will display Dashboard Assistant instead of OpenSearch Assistant.
 
-To launch the Dashboard Assistant, click the chat icon  in the top-right corner of the Wazuh Dashboard interface.
+To launch the Dashboard Assistant, click the chat icon  in the top-right corner of the BOSSS XDR Dashboard interface.
 
-If the change is not visible, try signing out and logging in again to the Wazuh Dashboard.
+If the change is not visible, try signing out and logging in again to the BOSSS XDR Dashboard.
 
-<img src="./images/Dashboard-assistant.png" alt="Wazuh Dashboard Assistant overview" width="1200">
+<img src="./images/Dashboard-assistant.png" alt="BOSSS XDR Dashboard Assistant overview" width="1200">
 
 <img src="./images/dashboard-assistant-zoom.png" alt="Dashboard Assistant chat panel (zoomed)" width="1200">
 

@@ -40,7 +40,7 @@ It detects the following events:
     ```
 
 
-You can also implement it throught the Wazuh Dashboard menu:
+You can also implement it throught the BOSSS XDR Dashboard menu:
 
     Server Management > Rules > Add new rules file
     Server Management > Decoders > Add new decoders file

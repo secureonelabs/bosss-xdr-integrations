@@ -3,8 +3,8 @@
 ## Table of Contents
 - [Introduction](#introduction)
 - [Prerequisites](#prerequisites)
-- [Custom Decoder Configuration in Wazuh Manager Server](#custom-decoder-configuration-in-wazuh-manager-server)
-- [Custom Ruleset Configuration in Wazuh Manager Server](#custom-ruleset-configuration-in-wazuh-manager-server)
+- [Custom Decoder Configuration in BOSSS XDR Manager Server](#custom-decoder-configuration-in-wazuh-manager-server)
+- [Custom Ruleset Configuration in BOSSS XDR Manager Server](#custom-ruleset-configuration-in-wazuh-manager-server)
   - [Testing Decoders and Rules](#testing-decoders-and-rules)
 - [Dashboard Configuration](#dashboard-configuration)
 - [Sources](#sources)
@@ -17,7 +17,7 @@ Before starting the integration, ensure you have the following:
 
 - A fully functional Wazuh environment, including the wazuh Server, Indexer, and Dashboard components.
 
-## Custom Decoder Configuration in Wazuh Manager Server
+## Custom Decoder Configuration in BOSSS XDR Manager Server
 
 The `Barracuda WAF` sends logs in a syslog format that needs to be parsed into structured fields by Wazuh for analysis and rule matching. We create a custom decoder to extract these fields.
 
@@ -36,7 +36,7 @@ chown wazuh:wazuh /var/ossec/etc/rules/barracuda-waf_decoders.xml
 chmod 660 /var/ossec/etc/rules/barracuda-waf_decoders.xml
 ```
 
-## Custom Ruleset Configuration in Wazuh Manager Server
+## Custom Ruleset Configuration in BOSSS XDR Manager Server
 
 Once the logs are decoded, custom rules define how Wazuh should react to different types of WAF events. 
 
@@ -241,7 +241,7 @@ Sample result:
 
 ## Dashboard Configuration
 
-Sample dashboard output is shown below. Click [here](https://github.com/wazuh/operations/blob/main/content/ruleset/barracuda-waf/dashboard/barracuda-waf.ndjson) to download the `barracuda-waf.ndjson` file for easy import into the Wazuh Dashboard.
+Sample dashboard output is shown below. Click [here](https://github.com/wazuh/operations/blob/main/content/ruleset/barracuda-waf/dashboard/barracuda-waf.ndjson) to download the `barracuda-waf.ndjson` file for easy import into the BOSSS XDR Dashboard.
 
 
 <img width="1918" height="939" alt="111p3" src="https://github.com/user-attachments/assets/a45fb0e4-f217-456a-bf8c-fa01346042cd" />

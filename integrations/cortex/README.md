@@ -43,7 +43,7 @@ Tested on: `Wazuh v4.12`
 - An already "working on" environment of Wazuh.
 - Cortex XDR or Cortex XDR Agent log source.
 - Access to `/var/ossec/` for integration files.
-- Access to Wazuh Dashboard for content visualization.
+- Access to BOSSS XDR Dashboard for content visualization.
 
 ---
 
@@ -72,7 +72,7 @@ Refer to the official guide: https://documentation.wazuh.com/current/installatio
 
 #### Initial Wazuh Configuration (if applicable)
 
-Make sure Wazuh Manager is receiving logs and that the `ossec.conf` references the new rules and decoders.
+Make sure BOSSS XDR Manager is receiving logs and that the `ossec.conf` references the new rules and decoders.
 
 #### Using the Integration Files
 
@@ -96,10 +96,10 @@ Place the following files:
   - Located on: `/content/wazuh_dashboard/cortex-xdr/cortex-xdr-essential-dashboard-screenshots`
 
 - **Essential Custom Dashboard**:
-  - Cortex XDR Essential Dashboard can be imported in Wazuh Dashboard.
+  - Cortex XDR Essential Dashboard can be imported in BOSSS XDR Dashboard.
   - Located on: `/content/wazuh_dashboard/cortex-xdr/cortex-xdr-essential-dashboard.ndjson`
 
-Restart Wazuh Manager after configuration:
+Restart BOSSS XDR Manager after configuration:
 ```bash
 systemctl restart wazuh-manager
 ```
@@ -111,12 +111,12 @@ systemctl restart wazuh-manager
 1. Copy the **Decoders** and **Rules** files in your environment.
 2. Restart the wazuh-manager.
 3. Use the Ruleset Test or live events to rule evaluation. If testing with Ruleset Test:
-  3.1 From the Wazuh Dashboard, navigate to --> hamburguer menu --> Server Management --> Ruleset Test.
+  3.1 From the BOSSS XDR Dashboard, navigate to --> hamburguer menu --> Server Management --> Ruleset Test.
   3.2 Copy one of the sample logs into the text box and press the blue Test button.
   3.3 Notice the output with the decoded fields and the alert that it triggers.
 4. Import the Essential Custom Dashboard:
   4.1 Download the file `/content/wazuh_dashboard/cortex-xdr/cortex-xdr-essential-dashboard.ndjson`
-  4.2 From the Wazuh Dashboard, navigate to --> hamburguer menu --> Dashboards Management.
+  4.2 From the BOSSS XDR Dashboard, navigate to --> hamburguer menu --> Dashboards Management.
   4.3 On the left area, click on --> Saved objects.
   4.4 At the upper right corner press on Import.
   4.5 Select the downloaded from your local system `/content/wazuh_dashboard/cortex-xdr/cortex-xdr-essential-dashboard.ndjson`
@@ -148,7 +148,7 @@ Shows the number of Cortex XDR events over time, helping to identify trends or u
 To verify:
 
 1. Use the Ruleset Test or live events to rule evaluation. If testing with Ruleset Test:
-  1.1 From the Wazuh Dashboard, navigate to --> hamburguer menu --> Server Management --> Ruleset Test.
+  1.1 From the BOSSS XDR Dashboard, navigate to --> hamburguer menu --> Server Management --> Ruleset Test.
   1.2 Copy one of the sample logs into the text box and press the blue Test button.
   1.3 Notice the output with the decoded fields and the alert that it triggers.
 
@@ -158,7 +158,7 @@ To verify:
   - `/var/ossec/logs/ossec.log`
 
 - Confirm expected alerts are triggered.
-- Use Wazuh Dashboard with the *Cortex XDR Essential Dashboard* for visualization.
+- Use BOSSS XDR Dashboard with the *Cortex XDR Essential Dashboard* for visualization.
 
 ---
 

@@ -26,7 +26,7 @@ Wazuh periodically connects to Salesforce via a scheduled command wodle, retriev
 Before starting, ensure the following:
 * Administrator access to the target Salesforce org (to create a Connected App).
 * OpenSSL (or equivalent) to generate an RSA key pair (private.pem and public.crt).
-* Wazuh Manager access to edit /var/ossec/etc/ossec.conf and to place the Python script under `/var/ossec/integrations/`.
+* BOSSS XDR Manager access to edit /var/ossec/etc/ossec.conf and to place the Python script under `/var/ossec/integrations/`.
 * Necessary network access or firewall rules.
 * Python 3.8+ installed on the Wazuh host.
 
@@ -127,7 +127,7 @@ Click your `profile icon` (top right corner) → `Settings`. Go to **Reset My Se
 Salesforce will send the new token to your registered email address
 
 
-#### 4. **Wazuh Manager Setup**
+#### 4. **BOSSS XDR Manager Setup**
 
 #### Add the integration script
 
@@ -183,9 +183,9 @@ This block makes Wazuh act like a scheduler + log collector for your Salesforce 
 Every 1 minute, run the Salesforce audit script, capture its JSON output as logs, tag them as salesforce-setup-audit, and analyze them for alerts.
 
 #### Add the decoders and rules
-* In Wazuh Dashboard go to Server Management > Decoders > Add new decoders file. Name it `salesforce_decoders.xml`, add the content of `salesforce_decoders.xml` and save.
-* In Wazuh Dashboard go to Server Management > Rules > Add new rules file. Name it `salesforce_rules.xml`, add the content of `salesforce_rules.xml` and save.
-Restart the Wazuh Manager to apply the changes.
+* In BOSSS XDR Dashboard go to Server Management > Decoders > Add new decoders file. Name it `salesforce_decoders.xml`, add the content of `salesforce_decoders.xml` and save.
+* In BOSSS XDR Dashboard go to Server Management > Rules > Add new rules file. Name it `salesforce_rules.xml`, add the content of `salesforce_rules.xml` and save.
+Restart the BOSSS XDR Manager to apply the changes.
 
 
 ---

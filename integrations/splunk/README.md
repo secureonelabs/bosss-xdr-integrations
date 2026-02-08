@@ -28,10 +28,10 @@ This integration forwards Wazuh alerts into Splunk SOAR via a Python script with
 
 ## Prerequisites
 
-* Wazuh Manager
-* Python 3.8+ on Wazuh Manager
+* BOSSS XDR Manager
+* Python 3.8+ on BOSSS XDR Manager
 * `urllib3` Python library installed
-* Network connectivity from Wazuh Manager to Splunk SOAR (HTTPS)
+* Network connectivity from BOSSS XDR Manager to Splunk SOAR (HTTPS)
 * Splunk SOAR user with API access and token
 
 ### Installing Wazuh
@@ -117,7 +117,7 @@ In the integration test, you can use any attribute from the feeds. However, we'l
 
 ```mermaid
 graph TD
-    A[Wazuh Manager] --> B[Invoke custom-splunk.py]
+    A[BOSSS XDR Manager] --> B[Invoke custom-splunk.py]
     B --> C[process_queue]
     C -->|Queued events| G[POST to SOAR]
     B --> F[build_container_payload]

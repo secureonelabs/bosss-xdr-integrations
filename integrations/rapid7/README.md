@@ -39,9 +39,9 @@ chmod 750 /var/ossec/integrations/custom-rapid7.py
 The script will run every 5 minutes and fetch the logs generated during the last 5 minutes.
 
 ### Add decoders and rules
-- In Wazuh Dashboard go to Server Management > Decoderss > Add new decoders file. Name it `rapid7-decoders.xml`, add the content of rapid7-decoders.xml and save.
-- In Wazuh Dashboard go to Server Management > Rules > Add new rules file. Name it `rapid7-rules.xml`, add the content of rapid7-rules.xml and save.
-- Restart the Wazuh Cluster to apply the changes.
+- In BOSSS XDR Dashboard go to Server Management > Decoderss > Add new decoders file. Name it `rapid7-decoders.xml`, add the content of rapid7-decoders.xml and save.
+- In BOSSS XDR Dashboard go to Server Management > Rules > Add new rules file. Name it `rapid7-rules.xml`, add the content of rapid7-rules.xml and save.
+- Restart the BOSSS XDR Cluster to apply the changes.
 
 ## Integration testing
 Once the configuration on the manager is done, the integration will run after 5 minutes and the alerts will appear on the dashboard.

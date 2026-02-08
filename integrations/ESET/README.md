@@ -15,14 +15,14 @@
 
 ### Introduction
 
-This guide explains how to integrate the ESET PROTECT Platform with Wazuh by deploying the ESET integration application where the Wazuh Agent is installed. Instead of writing ESET detection logs directly to the Wazuh Manager, the integration stores them locally on the endpoint, where the agent collects and forwards them to the Manager. It uses the agent’s built-in queuing, buffering, security, and resilience to network interruptions to prevent event loss. The collected ESET events are indexed and analyzed in the Wazuh Dashboard alongside other security data.
+This guide explains how to integrate the ESET PROTECT Platform with Wazuh by deploying the ESET integration application where the BOSSS XDR Agent is installed. Instead of writing ESET detection logs directly to the BOSSS XDR Manager, the integration stores them locally on the endpoint, where the agent collects and forwards them to the Manager. It uses the agent’s built-in queuing, buffering, security, and resilience to network interruptions to prevent event loss. The collected ESET events are indexed and analyzed in the BOSSS XDR Dashboard alongside other security data.
 
 ### Prerequisites
 
 Before starting, ensure the following:
 
   * An active ESET Connect API user account created in the ESET Protect Hub with permissions for integrations.
-  * A Wazuh Agent installed on the endpoint where the ESET integration application will run, configured to communicate with your Wazuh Manager.
+  * A BOSSS XDR Agent installed on the endpoint where the ESET integration application will run, configured to communicate with your BOSSS XDR Manager.
   * Docker and Docker Compose installed on the endpoint with the agent.
   * Access to the ESET integration application repository.
 
@@ -34,7 +34,7 @@ In the ESET Protect Hub, create an API user with permissions to access ESET dete
 
 #### Download the Integration Application
 
-Clone the integration repository on the endpoint where the Wazuh Agent is installed:
+Clone the integration repository on the endpoint where the BOSSS XDR Agent is installed:
 
 ```bash
 git clone --branch 1.2.1 https://github.com/eset/ESET-Integration-Wazuh.git /opt/eset-integration
@@ -56,7 +56,7 @@ Create the file where the integration will write ESET detections:
 touch /var/log/eset_integration.log
 ```
 
-#### Configure the Wazuh Agent to Monitor the Log File
+#### Configure the BOSSS XDR Agent to Monitor the Log File
 
 Edit the agent `ossec.conf` and add the following `localfile` block:
 
@@ -98,7 +98,7 @@ docker compose --file /opt/eset-integration/docker-compose.yml up -d
   * Add the `localfile` block to the agent configuration.
   * Populate `.env` with ESET API credentials and settings.
   * Start the container with Docker Compose.
-  * The agent forwards detections to the Wazuh Manager.
+  * The agent forwards detections to the BOSSS XDR Manager.
 
 ### Integration Testing
 
@@ -114,8 +114,8 @@ docker logs -f <container_name>
 tail -n 50 /var/log/eset_integration.log
 ```
 
-#### Verify in Wazuh Dashboard
+#### Verify in BOSSS XDR Dashboard
 
-1.  Open the Wazuh Dashboard.
+1.  Open the BOSSS XDR Dashboard.
 2.  Add a filter: `Field` `rule.groups`, `Operator` `is`, `Value` `eset`.
 3.  Save the filter to view ingested ESET events.

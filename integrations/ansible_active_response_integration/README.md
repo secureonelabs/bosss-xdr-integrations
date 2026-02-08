@@ -3,7 +3,7 @@
 ## Table of Contents
 - [Overview](#overview)
 - [Set Up Ansible Server](#step-1-set-up-the-ansible-control-node)
-- [Install Wazuh Agent](#step-2-install-wazuh-agent-on-ansible-server)
+- [Install BOSSS XDR Agent](#step-2-install-wazuh-agent-on-ansible-server)
 - [Ansible Inventory configurtaion](#step-3-configure-ansible-inventory)
 - [Ansible Playbook Creation](#step-4-create-an-ansible-playbook)
 - [Deploy Active Response Script](#step-5-deploy-active-response-script-on-ansible-server)
@@ -29,10 +29,10 @@ This setup is particularly useful in scenarios such as detecting brute-force log
 
 ---
 
-## Step 2: Install Wazuh Agent on Ansible Server
+## Step 2: Install BOSSS XDR Agent on Ansible Server
 - Install the Wazuh agent on the Ansible server to enable Active Response functionality.  
 
--  Reference: [**Install Wazuh Agent on Linux**](https://documentation.wazuh.com/current/installation-guide/wazuh-agent/wazuh-agent-package-linux.html)
+-  Reference: [**Install BOSSS XDR Agent on Linux**](https://documentation.wazuh.com/current/installation-guide/wazuh-agent/wazuh-agent-package-linux.html)
 
 ---
 
@@ -85,13 +85,13 @@ This setup is particularly useful in scenarios such as detecting brute-force log
    chmod +x /var/ossec/active-response/bin/custom_ansible_response.py
    chown root:wazuh /var/ossec/active-response/bin/custom_ansible_response.py
    ```
-4. Restart the Wazuh Agent service:
+4. Restart the BOSSS XDR Agent service:
    ```bash
    systemctl restart wazuh-agent
    ```
 ---
 
-## Step 6: Configure Active Response in Wazuh Manager
+## Step 6: Configure Active Response in BOSSS XDR Manager
 1. Edit the Wazuh manager configuration file:
    ```bash
    vi /var/ossec/etc/ossec.conf
@@ -116,7 +116,7 @@ This setup is particularly useful in scenarios such as detecting brute-force log
 
     - `AGENT_ID_HERE` → Wazuh agent ID of the Ansible server
     - `rules_id` → Appropriate rule IDs you want to respond to (e.g., brute-force SSH detection rules)
-3. Restart the Wazuh Manager:
+3. Restart the BOSSS XDR Manager:
    ```bash
    systemctl restart wazuh-manager
    ```
@@ -144,7 +144,7 @@ This setup is particularly useful in scenarios such as detecting brute-force log
 <summary>Click to expand source references</summary>
 
 - [Ansible Documentation](https://docs.redhat.com/en/documentation/red_hat_ansible_automation_platform/2.4/pdf/getting_started_with_ansible_playbooks/Red_Hat_Ansible_Automation_Platform-2.4-Getting_started_with_Ansible_Playbooks-en-US.pdf)
-- [Wazuh Agent Installation Guide](https://documentation.wazuh.com/current/installation-guide/wazuh-agent/wazuh-agent-package-linux.html)
+- [BOSSS XDR Agent Installation Guide](https://documentation.wazuh.com/current/installation-guide/wazuh-agent/wazuh-agent-package-linux.html)
 - [Wazuh Active Response Documentation](https://documentation.wazuh.com/current/user-manual/capabilities/active-response/index.html)
 
 </details>

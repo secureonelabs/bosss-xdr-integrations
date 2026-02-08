@@ -56,7 +56,7 @@ Provide a brief overview of what this integration does, its purpose, and how it 
 ### Prerequisites
 
 List all necessary prerequisites for setting up this integration. This may include:
-* Specific versions of Wazuh Server or Agents.
+* Specific versions of BOSSS XDR Server or Agents.
 * Specific versions of the third-party solution.
 * Required software, libraries, or dependencies (e.g., Python modules).
 * Necessary network access or firewall rules.
@@ -84,7 +84,7 @@ If the integration has specific Wazuh installation requirements beyond standard 
 
 #### Initial Wazuh Configuration (if applicable)
 
-Explain any initial Wazuh Server/Indexer or Agent configurations required before deploying the integration's files. This could involve enabling modules or specific settings.
+Explain any initial BOSSS XDR Server/Indexer or Agent configurations required before deploying the integration's files. This could involve enabling modules or specific settings.
 
 #### Using the Integration Files
 

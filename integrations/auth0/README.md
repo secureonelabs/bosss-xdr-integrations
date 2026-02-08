@@ -10,7 +10,7 @@
 - <a href="#validateint">Validate Integration</a>
 - <a href="#approach2" >Approach Two</a>
 - <a href="#createrule" >Create rule</a>
-- <a href="#visualization">Screenshots on Wazuh Dashboard</a>
+- <a href="#visualization">Screenshots on BOSSS XDR Dashboard</a>
 
 
 ## <h2 id="overview" >Overview</h2>
@@ -104,7 +104,7 @@ Test decoding in Wazuh: `/var/ossec/bin/wazuh-logtest`
 
 <h3>Prepare a Script to fetch Auth0 Log</h3>
 
-On the Wazuh Manager, Create a [bash script](auth0_wodle_fetch.sh), e.g.,`/var/ossec/bin/auth0_wodle_fetch.sh`.
+On the BOSSS XDR Manager, Create a [bash script](auth0_wodle_fetch.sh), e.g.,`/var/ossec/bin/auth0_wodle_fetch.sh`.
 
 <h3>Make it Executable:</h3>
 
@@ -132,7 +132,7 @@ Edit the Wazuh manager’s `ossec.conf` (usually `/var/ossec/etc/ossec.conf`), a
 - `<timeout>`: max time allowed; if the script runs longer, it's killed. 
 - `<ignore_output>`: if set to `“no”`, the output is sent to Wazuh. If `“yes”`, output is ignored. 
 
-<h3>Restart the Wazuh Manager</h3>
+<h3>Restart the BOSSS XDR Manager</h3>
 
 `sudo systemctl restart wazuh-manager`
 
@@ -157,7 +157,7 @@ Command Validation:
 <img width="800" height="400" src="https://github.com/user-attachments/assets/e38c72f4-7665-4963-847d-aa492058805a" />
 
 
-## <h2 id="visualization" >Screenshots on Wazuh Dashboard</h2>
+## <h2 id="visualization" >Screenshots on BOSSS XDR Dashboard</h2>
 
 <img width="800" height="600" src="https://github.com/user-attachments/assets/c2e3ac4c-d953-4962-9fb8-8fc48c64279d" />
 

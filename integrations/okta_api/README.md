@@ -29,7 +29,7 @@ This integration was developed and tested in a production use case for centraliz
 
 * **Wazuh version:** v4.12
 * **Log source:** Okta System Log API
-* **Platform:** Wazuh Manager (tested on On-prem)
+* **Platform:** BOSSS XDR Manager (tested on On-prem)
 
 ---
 
@@ -37,7 +37,7 @@ This integration was developed and tested in a production use case for centraliz
 
 * An active Okta organization with admin access
 * API Token from Okta
-* Wazuh Manager installed and functioning
+* BOSSS XDR Manager installed and functioning
 * Access to `/var/ossec/` and permissions to edit cron and rules files
 
 ---
@@ -146,7 +146,7 @@ tail -f /var/ossec/logs/archives/archives.log | grep okta
 tail -f /var/ossec/logs/archives/archives.log | grep okta
 ```
 
-#### 4. Wazuh Dashboard:
+#### 4. BOSSS XDR Dashboard:
 
 Navigate to **Discover** or **Threat Hunting**.
 

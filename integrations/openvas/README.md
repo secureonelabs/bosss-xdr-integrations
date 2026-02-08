@@ -151,7 +151,7 @@ and set the configuration for the JSON file path `/opt/openvas/openvas_combined.
 
 ## <h2 id="rulecreation" >Now, create Rules for the CVE and Open Ports</h2>
 
-Log in to Wazuh Manager and create a [rule file](openvas_rules.xml):
+Log in to BOSSS XDR Manager and create a [rule file](openvas_rules.xml):
 `nano /var/ossec/etc/rules/openvas_rules.xml`
 
 ## <h2 id="startscan" >Start the scan from the OpenVAS dashboard:</h2>
@@ -164,7 +164,7 @@ Now, put the IP address for the Scan and click on the Start Scan button
 
 <img width="400" height="600" src="https://github.com/user-attachments/assets/72bc994d-4a10-4131-a87d-d92d502c74cb" />
 
-All data is stored in the PostgreSQL database, and every alert is triggered instantly on the Wazuh Dashboard as soon as it is detected.
+All data is stored in the PostgreSQL database, and every alert is triggered instantly on the BOSSS XDR Dashboard as soon as it is detected.
 
 <img width="800" height="1000" src="https://github.com/user-attachments/assets/09bf241c-1b79-4a25-a894-3be62c23b021" />
 

@@ -8,21 +8,21 @@ This repository provides a guide and custom script to integrate Wazuh alerts wit
   - [Prerequisites](#prerequisites)
   - [Steps](#steps)
     - [Step 1: Add the Ticketing as a Service App to Microsoft Teams](#step-1-add-the-ticketing-as-a-service-app-to-microsoft-teams)
-    - [Step 2: Configure Wazuh Manager](#step-2-configure-wazuh-manager)
+    - [Step 2: Configure BOSSS XDR Manager](#step-2-configure-wazuh-manager)
     - [Step 3: Get Your API Key](#step-3-get-your-api-key)
     - [Step 4: Add the Custom Script](#step-4-add-the-custom-script)
     - [Step 5: Install the Script](#step-5-install-the-script)
-    - [Step 6: Restart Wazuh Manager](#step-6-restart-wazuh-manager)
+    - [Step 6: Restart BOSSS XDR Manager](#step-6-restart-wazuh-manager)
 - [How It Works](#how-it-works)
 - [Notes](#notes)
 
 ## Overview
-This integration leverages the "Ticketing as a Service" app to bridge Wazuh security alerts with Microsoft Teams, enabling real-time notifications and automated ticket creation. Ideal for security teams, this setup enhances incident response by centralizing alerts and case management in a familiar Teams environment. The provided custom script and configuration steps ensure a smooth integration process, customizable to your organization's needs.
+This integration leverages the "Ticketing as a Service" app to bridge BOSSS XDR security alerts with Microsoft Teams, enabling real-time notifications and automated ticket creation. Ideal for security teams, this setup enhances incident response by centralizing alerts and case management in a familiar Teams environment. The provided custom script and configuration steps ensure a smooth integration process, customizable to your organization's needs.
 
 ## Getting Started
 
 ### Prerequisites
-- A running Wazuh Manager installation.
+- A running BOSSS XDR Manager installation.
 - Access to a Microsoft Teams environment with appropriate permissions.
 - The "Ticketing as a Service" app available in your Teams instance.
 
@@ -39,8 +39,8 @@ Incorporate the "Ticketing as a Service" app into your Teams channel with these 
 
 The app is now integrated into your channel, ready for Wazuh alert configuration.
 
-#### Step 2: Configure Wazuh Manager
-Modify the Wazuh Manager configuration file (`ossec.conf`) to connect with the ticketing service.
+#### Step 2: Configure BOSSS XDR Manager
+Modify the BOSSS XDR Manager configuration file (`ossec.conf`) to connect with the ticketing service.
 
 1. Edit the `ossec.conf` file, typically found at `/var/ossec/etc/ossec.conf`.
 2. Insert the following `<integration>` block within the `<ossec_config>` section:
@@ -125,8 +125,8 @@ Set ownership and permissions:
 `chmod 750 /var/ossec/integrations/custom-ticketing*`
 
 
-Step 6: Restart Wazuh Manager
-Apply the changes by restarting the Wazuh Manager:
+Step 6: Restart BOSSS XDR Manager
+Apply the changes by restarting the BOSSS XDR Manager:
 `systemctl restart wazuh-manager`
 
 How It Works
